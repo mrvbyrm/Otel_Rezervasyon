@@ -1,0 +1,2256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8F95747E-62E1-4EB0-9C9C-AECBE828E985}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Tatil_Rezervasyon_Otomasyonu</RootNamespace>
+    <AssemblyName>Tatil Rezervasyon Otomasyonu</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Azure.Core, Version=1.25.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>packages\Azure.Core.1.25.0\lib\net461\Azure.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Identity, Version=1.7.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>packages\Azure.Identity.1.7.0\lib\netstandard2.0\Azure.Identity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.SqlClient, Version=5.0.0.0, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Data.SqlClient.5.1.1\lib\net462\Microsoft.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client, Version=4.47.2.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Identity.Client.4.47.2\lib\net461\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client.Extensions.Msal, Version=2.19.3.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Identity.Client.Extensions.Msal.2.19.3\lib\net45\Microsoft.Identity.Client.Extensions.Msal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=6.24.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Abstractions.6.24.0\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.24.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.JsonWebTokens.6.24.0\lib\net472\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.24.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Logging.6.24.0\lib\net472\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols, Version=6.24.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Protocols.6.24.0\lib\net472\Microsoft.IdentityModel.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect, Version=6.24.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Protocols.OpenIdConnect.6.24.0\lib\net472\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.24.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IdentityModel.Tokens.6.24.0\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Configuration.ConfigurationManager.6.0.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OleDb, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.OleDb.7.0.0\lib\net462\System.Data.OleDb.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.5, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SqlClient.4.8.5\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.4.6.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.24.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\System.IdentityModel.Tokens.Jwt.6.24.0\lib\net472\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory.Data, Version=1.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.Data.1.0.2\lib\net461\System.Memory.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.ProtectedData, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.ProtectedData.4.7.0\lib\net461\System.Security.Cryptography.ProtectedData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Permissions.6.0.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.6.0.0\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.4.7.2\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="adminDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>adminDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AlgedraOtel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlgedraOtel.Designer.cs">
+      <DependentUpon>AlgedraOtel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlinaOtel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlinaOtel.Designer.cs">
+      <DependentUpon>AlinaOtel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnaSayfaGiriş.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnaSayfaGiriş.Designer.cs">
+      <DependentUpon>AnaSayfaGiriş.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database2DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database2DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Database2DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database2DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DedemanBostancıOtel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DedemanBostancıOtel.Designer.cs">
+      <DependentUpon>DedemanBostancıOtel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DemirciOtel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DemirciOtel.Designer.cs">
+      <DependentUpon>DemirciOtel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gemiTuruDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gemiTuruDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="gemiTuruDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gemiTuruDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="gemiTuruDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gemiTuruDataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet32.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet32.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="yurtdışıTuruDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>yurtdışıTuruDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="YönetimOtelAnasayfa2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YönetimOtelAnasayfa2.Designer.cs">
+      <DependentUpon>YönetimOtelAnasayfa2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MeisserOtel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MeisserOtel.Designer.cs">
+      <DependentUpon>MeisserOtel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NavakitelOtel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NavakitelOtel.Designer.cs">
+      <DependentUpon>NavakitelOtel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtelArama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtelArama.Designer.cs">
+      <DependentUpon>OtelArama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtelAramaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtelAramaDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OtelAramaDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtelAramaDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OtelAramaDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtelAramaDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OtellerVeriTabanıDataSet14.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtellerVeriTabanıDataSet14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OtellerVeriTabanıDataSet15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtellerVeriTabanıDataSet15.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RenoOtel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RenoOtel.Designer.cs">
+      <DependentUpon>RenoOtel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheMarmaraPeraOtel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TheMarmaraPeraOtel.Designer.cs">
+      <DependentUpon>TheMarmaraPeraOtel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet271.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet271.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet28.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet28.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet29.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet29.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet30.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet30.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet31.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet31.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="YönetimKayıt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YönetimKayıt.Designer.cs">
+      <DependentUpon>YönetimKayıt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YönetimYurtDısı.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YönetimYurtDısı.Designer.cs">
+      <DependentUpon>YönetimYurtDısı.cs</DependentUpon>
+    </Compile>
+    <Compile Include="kampanyadiamond.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="kampanyadiamond.Designer.cs">
+      <DependentUpon>kampanyadiamond.cs</DependentUpon>
+    </Compile>
+    <Compile Include="kyrenia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="kyrenia.Designer.cs">
+      <DependentUpon>kyrenia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ngsapanca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ngsapanca.Designer.cs">
+      <DependentUpon>ngsapanca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="nirvana.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="nirvana.Designer.cs">
+      <DependentUpon>nirvana.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtellerVeriTabanıDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtellerVeriTabanıDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OtellerVeriTabanıDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtellerVeriTabanıDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OtellerVeriTabanıDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtellerVeriTabanıDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OtellerVeriTabanıDataSet111.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtellerVeriTabanıDataSet111.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OtellerVeriTabanıDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtellerVeriTabanıDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OtellerVeriTabanıDataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtellerVeriTabanıDataSet13.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OtellerVeriTabanıDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtellerVeriTabanıDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OtellerVeriTabanıDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtellerVeriTabanıDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OtellerVeriTabanıDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtellerVeriTabanıDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OtellerVeriTabanıDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtellerVeriTabanıDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OtellerVeriTabanıDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtellerVeriTabanıDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OtellerVeriTabanıDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtellerVeriTabanıDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OtellerVeriTabanıDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtellerVeriTabanıDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="OtellerVeriTabanıDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtellerVeriTabanıDataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="richmond.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="richmond.Designer.cs">
+      <DependentUpon>richmond.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sandıklı.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sandıklı.Designer.cs">
+      <DependentUpon>sandıklı.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xandu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Xandu.Designer.cs">
+      <DependentUpon>Xandu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet17.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet17.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet18.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet18.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet19.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet19.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet20.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet20.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet21.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet22.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet22.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet23.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet23.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet24.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet24.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet25.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet25.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet26.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet26.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="gemiTuruDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gemiTuruDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="gemiTuruDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gemiTuruDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="gemiTuruDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gemiTuruDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KulturTurlarıDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KulturTurlarıDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KulturTurlarıDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KulturTurlarıDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KulturTurlarıDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KulturTurlarıDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KulturTurlarıDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KulturTurlarıDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KulturTurlarıDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KulturTurlarıDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet13.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet14.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet15.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet16.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="yurtdışıTuruDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>yurtdışıTuruDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="yurtdışıTuruDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>yurtdışıTuruDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="yurtdışıTuruDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>yurtdışıTuruDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="yurtdışıTuruDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>yurtdışıTuruDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="yurtdışıTuruDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>yurtdışıTuruDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yönetimbalkantur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yönetimbalkantur.Designer.cs">
+      <DependentUpon>Yönetimbalkantur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GirişSayfaları.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GirişSayfaları.Designer.cs">
+      <DependentUpon>GirişSayfaları.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurMısırÖrnek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurMısırÖrnek.Designer.cs">
+      <DependentUpon>TurMısırÖrnek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurKültürBodrum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurKültürBodrum.Designer.cs">
+      <DependentUpon>TurKültürBodrum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurAnaSayfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurAnaSayfa.Designer.cs">
+      <DependentUpon>TurAnaSayfa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YönetimOtelAnaSayfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YönetimOtelAnaSayfa.Designer.cs">
+      <DependentUpon>YönetimOtelAnaSayfa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtelAnasayfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtelAnasayfa.Designer.cs">
+      <DependentUpon>OtelAnasayfa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="girisDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>girisDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="girisDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>girisDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KulturTurlarıDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KulturTurlarıDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KulturTurlarıDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KulturTurlarıDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="admingiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admingiris.Designer.cs">
+      <DependentUpon>admingiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YönetimKültürEgeTur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YönetimKültürEgeTur.Designer.cs">
+      <DependentUpon>YönetimKültürEgeTur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YönetimKültürKaradenizTur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YönetimKültürKaradenizTur.Designer.cs">
+      <DependentUpon>YönetimKültürKaradenizTur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="gemiTuruDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gemiTuruDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="gemiTuruDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gemiTuruDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="gemiTuruDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gemiTuruDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="gemiTuruDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>gemiTuruDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="YönetimKültürTurAnasayfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YönetimKültürTurAnasayfa.Designer.cs">
+      <DependentUpon>YönetimKültürTurAnasayfa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YönetimTurAnaSayfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YönetimTurAnaSayfa.Designer.cs">
+      <DependentUpon>YönetimTurAnaSayfa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YönetimTurGemiYunan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YönetimTurGemiYunan.Designer.cs">
+      <DependentUpon>YönetimTurGemiYunan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YönetimTurGemiAkdeniz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YönetimTurGemiAkdeniz.Designer.cs">
+      <DependentUpon>YönetimTurGemiAkdeniz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurYurtDışıÖrnekBalkan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurYurtDışıÖrnekBalkan.Designer.cs">
+      <DependentUpon>TurYurtDışıÖrnekBalkan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="belirsizsayfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="belirsizsayfa.Designer.cs">
+      <DependentUpon>belirsizsayfa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YurtDışıTurları.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YurtDışıTurları.Designer.cs">
+      <DependentUpon>YurtDışıTurları.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurlarMısır.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurlarMısır.Designer.cs">
+      <DependentUpon>TurlarMısır.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurMısır.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurMısır.Designer.cs">
+      <DependentUpon>TurMısır.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurKültürEge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurKültürEge.Designer.cs">
+      <DependentUpon>TurKültürEge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurKültürLikya.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurKültürLikya.Designer.cs">
+      <DependentUpon>TurKültürLikya.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurInceleGemi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurInceleGemi.Designer.cs">
+      <DependentUpon>TurInceleGemi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurGemiÖrnek3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurGemiÖrnek3.Designer.cs">
+      <DependentUpon>TurGemiÖrnek3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurYurtDışıBalkanÖrnek3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurYurtDışıBalkanÖrnek3.Designer.cs">
+      <DependentUpon>TurYurtDışıBalkanÖrnek3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurGemiÖrnek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurGemiÖrnek.Designer.cs">
+      <DependentUpon>TurGemiÖrnek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnaSayfaTur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnaSayfaTur.Designer.cs">
+      <DependentUpon>AnaSayfaTur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurYurtDışıBalkan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurYurtDışıBalkan.Designer.cs">
+      <DependentUpon>TurYurtDışıBalkan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurYurtDışıBalkanÖrnekk2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurYurtDışıBalkanÖrnekk2.Designer.cs">
+      <DependentUpon>TurYurtDışıBalkanÖrnekk2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurYurtDışıBalkanÖrnek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurYurtDışıBalkanÖrnek.Designer.cs">
+      <DependentUpon>TurYurtDışıBalkanÖrnek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="yurtdışıTuruDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>yurtdışıTuruDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="YönetimMısırtur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YönetimMısırtur.Designer.cs">
+      <DependentUpon>YönetimMısırtur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="yurtdışıTuruDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>yurtdışıTuruDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="yurtdışıTuruDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>yurtdışıTuruDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="YYTurlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YYTurlar.Designer.cs">
+      <DependentUpon>YYTurlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="YöneticiSistemi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YöneticiSistemi.Designer.cs">
+      <DependentUpon>YöneticiSistemi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="navakiteloda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="navakiteloda.Designer.cs">
+      <DependentUpon>navakiteloda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurlarKültür.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurlarKültür.Designer.cs">
+      <DependentUpon>TurlarKültür.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurKültürKaradeniz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurKültürKaradeniz.Designer.cs">
+      <DependentUpon>TurKültürKaradeniz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurKültürKaradenizÖrnek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurKültürKaradenizÖrnek.Designer.cs">
+      <DependentUpon>TurKültürKaradenizÖrnek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnaSayfaOtel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnaSayfaOtel.Designer.cs">
+      <DependentUpon>AnaSayfaOtel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurGemiAnasayfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurGemiAnasayfa.Designer.cs">
+      <DependentUpon>TurGemiAnasayfa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurGemi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurGemi.Designer.cs">
+      <DependentUpon>TurGemi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TurGemiÖrnek2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TurGemiÖrnek2.Designer.cs">
+      <DependentUpon>TurGemiÖrnek2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="girisyap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="girisyap.Designer.cs">
+      <DependentUpon>girisyap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="kampanya.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="kampanya.Designer.cs">
+      <DependentUpon>kampanya.cs</DependentUpon>
+    </Compile>
+    <Compile Include="kayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="kayit.Designer.cs">
+      <DependentUpon>kayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="notel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="notel.Designer.cs">
+      <DependentUpon>notel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="odeme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="odeme.Designer.cs">
+      <DependentUpon>odeme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rino.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rino.Designer.cs">
+      <DependentUpon>rino.cs</DependentUpon>
+    </Compile>
+    <Compile Include="secimyap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="secimyap.Designer.cs">
+      <DependentUpon>secimyap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="renostandartoda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="renostandartoda.Designer.cs">
+      <DependentUpon>renostandartoda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="marmarasuitoda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="marmarasuitoda.Designer.cs">
+      <DependentUpon>marmarasuitoda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="thmrmra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="thmrmra.Designer.cs">
+      <DependentUpon>thmrmra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ydısıotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ydısıotel.Designer.cs">
+      <DependentUpon>ydısıotel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AramaTurSonuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AramaTurSonuc.Designer.cs">
+      <DependentUpon>AramaTurSonuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Yeni_Microsoft_Access_VeritabanıDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="yiciotel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include=".Designer.cs">
+      <DependentUpon>yiciotel.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YönetimGemiTuruAnasayfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YönetimGemiTuruAnasayfa.Designer.cs">
+      <DependentUpon>YönetimGemiTuruAnasayfa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YönetimYici.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YönetimYici.Designer.cs">
+      <DependentUpon>YönetimYici.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AlgedraOtel.resx">
+      <DependentUpon>AlgedraOtel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlinaOtel.resx">
+      <DependentUpon>AlinaOtel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnaSayfaGiriş.resx">
+      <DependentUpon>AnaSayfaGiriş.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DedemanBostancıOtel.resx">
+      <DependentUpon>DedemanBostancıOtel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DemirciOtel.resx">
+      <DependentUpon>DemirciOtel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YönetimOtelAnasayfa2.resx">
+      <DependentUpon>YönetimOtelAnasayfa2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MeisserOtel.resx">
+      <DependentUpon>MeisserOtel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NavakitelOtel.resx">
+      <DependentUpon>NavakitelOtel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtelArama.resx">
+      <DependentUpon>OtelArama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RenoOtel.resx">
+      <DependentUpon>RenoOtel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TheMarmaraPeraOtel.resx">
+      <DependentUpon>TheMarmaraPeraOtel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YönetimKayıt.resx">
+      <DependentUpon>YönetimKayıt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YönetimYurtDısı.resx">
+      <DependentUpon>YönetimYurtDısı.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="kampanyadiamond.resx">
+      <DependentUpon>kampanyadiamond.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GirişSayfaları.resx">
+      <DependentUpon>GirişSayfaları.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="kyrenia.resx">
+      <DependentUpon>kyrenia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ngsapanca.resx">
+      <DependentUpon>ngsapanca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="nirvana.resx">
+      <DependentUpon>nirvana.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="richmond.resx">
+      <DependentUpon>richmond.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sandıklı.resx">
+      <DependentUpon>sandıklı.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurMısırÖrnek.resx">
+      <DependentUpon>TurMısırÖrnek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurKültürBodrum.resx">
+      <DependentUpon>TurKültürBodrum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurAnaSayfa.resx">
+      <DependentUpon>TurAnaSayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xandu.resx">
+      <DependentUpon>Xandu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yönetimbalkantur.resx">
+      <DependentUpon>Yönetimbalkantur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YönetimOtelAnaSayfa.resx">
+      <DependentUpon>YönetimOtelAnaSayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtelAnasayfa.resx">
+      <DependentUpon>OtelAnasayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admingiris.resx">
+      <DependentUpon>admingiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YönetimKültürEgeTur.resx">
+      <DependentUpon>YönetimKültürEgeTur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YönetimKültürKaradenizTur.resx">
+      <DependentUpon>YönetimKültürKaradenizTur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YönetimKültürTurAnasayfa.resx">
+      <DependentUpon>YönetimKültürTurAnasayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YönetimTurAnaSayfa.resx">
+      <DependentUpon>YönetimTurAnaSayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YönetimTurGemiYunan.resx">
+      <DependentUpon>YönetimTurGemiYunan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YönetimTurGemiAkdeniz.resx">
+      <DependentUpon>YönetimTurGemiAkdeniz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurYurtDışıÖrnekBalkan.resx">
+      <DependentUpon>TurYurtDışıÖrnekBalkan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="belirsizsayfa.resx">
+      <DependentUpon>belirsizsayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YurtDışıTurları.resx">
+      <DependentUpon>YurtDışıTurları.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurlarMısır.resx">
+      <DependentUpon>TurlarMısır.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurMısır.resx">
+      <DependentUpon>TurMısır.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurKültürEge.resx">
+      <DependentUpon>TurKültürEge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurKültürLikya.resx">
+      <DependentUpon>TurKültürLikya.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurInceleGemi.resx">
+      <DependentUpon>TurInceleGemi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurGemiÖrnek3.resx">
+      <DependentUpon>TurGemiÖrnek3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurYurtDışıBalkanÖrnek3.resx">
+      <DependentUpon>TurYurtDışıBalkanÖrnek3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurGemiÖrnek.resx">
+      <DependentUpon>TurGemiÖrnek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnaSayfaTur.resx">
+      <DependentUpon>AnaSayfaTur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurYurtDışıBalkan.resx">
+      <DependentUpon>TurYurtDışıBalkan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurYurtDışıBalkanÖrnekk2.resx">
+      <DependentUpon>TurYurtDışıBalkanÖrnekk2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurYurtDışıBalkanÖrnek.resx">
+      <DependentUpon>TurYurtDışıBalkanÖrnek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YönetimMısırtur.resx">
+      <DependentUpon>YönetimMısırtur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YYTurlar.resx">
+      <DependentUpon>YYTurlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YöneticiSistemi.resx">
+      <DependentUpon>YöneticiSistemi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurlarKültür.resx">
+      <DependentUpon>TurlarKültür.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurKültürKaradeniz.resx">
+      <DependentUpon>TurKültürKaradeniz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurKültürKaradenizÖrnek.resx">
+      <DependentUpon>TurKültürKaradenizÖrnek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnaSayfaOtel.resx">
+      <DependentUpon>AnaSayfaOtel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurGemiAnasayfa.resx">
+      <DependentUpon>TurGemiAnasayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurGemi.resx">
+      <DependentUpon>TurGemi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TurGemiÖrnek2.resx">
+      <DependentUpon>TurGemiÖrnek2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="girisyap.resx">
+      <DependentUpon>girisyap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="kampanya.resx">
+      <DependentUpon>kampanya.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="kayit.resx">
+      <DependentUpon>kayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="navakiteloda.resx">
+      <DependentUpon>navakiteloda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="notel.resx">
+      <DependentUpon>notel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="odeme.resx">
+      <DependentUpon>odeme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="rino.resx">
+      <DependentUpon>rino.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="secimyap.resx">
+      <DependentUpon>secimyap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="renostandartoda.resx">
+      <DependentUpon>renostandartoda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="marmarasuitoda.resx">
+      <DependentUpon>marmarasuitoda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="thmrmra.resx">
+      <DependentUpon>thmrmra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ydısıotel.resx">
+      <DependentUpon>ydısıotel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AramaTurSonuc.resx">
+      <DependentUpon>AramaTurSonuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="yiciotel.resx">
+      <DependentUpon>yiciotel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YönetimGemiTuruAnasayfa.resx">
+      <DependentUpon>YönetimGemiTuruAnasayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YönetimYici.resx">
+      <DependentUpon>YönetimYici.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="adminDataSet.xsc">
+      <DependentUpon>adminDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="adminDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>adminDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="adminDataSet.xss">
+      <DependentUpon>adminDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Database2DataSet.xsc">
+      <DependentUpon>Database2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Database2DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Database2DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database2DataSet.xss">
+      <DependentUpon>Database2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Database2DataSet1.xsc">
+      <DependentUpon>Database2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Database2DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Database2DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database2DataSet1.xss">
+      <DependentUpon>Database2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet.xsc">
+      <DependentUpon>gemiTuruDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gemiTuruDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gemiTuruDataSet.xss">
+      <DependentUpon>gemiTuruDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet1.xsc">
+      <DependentUpon>gemiTuruDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gemiTuruDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gemiTuruDataSet1.xss">
+      <DependentUpon>gemiTuruDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet2.xsc">
+      <DependentUpon>gemiTuruDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gemiTuruDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gemiTuruDataSet2.xss">
+      <DependentUpon>gemiTuruDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet3.xsc">
+      <DependentUpon>gemiTuruDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gemiTuruDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gemiTuruDataSet3.xss">
+      <DependentUpon>gemiTuruDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet4.xsc">
+      <DependentUpon>gemiTuruDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gemiTuruDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gemiTuruDataSet4.xss">
+      <DependentUpon>gemiTuruDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet5.xsc">
+      <DependentUpon>gemiTuruDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gemiTuruDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gemiTuruDataSet5.xss">
+      <DependentUpon>gemiTuruDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet6.xsc">
+      <DependentUpon>gemiTuruDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gemiTuruDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gemiTuruDataSet6.xss">
+      <DependentUpon>gemiTuruDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet7.xsc">
+      <DependentUpon>gemiTuruDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gemiTuruDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gemiTuruDataSet7.xss">
+      <DependentUpon>gemiTuruDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet8.xsc">
+      <DependentUpon>gemiTuruDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gemiTuruDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gemiTuruDataSet8.xss">
+      <DependentUpon>gemiTuruDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet9.xsc">
+      <DependentUpon>gemiTuruDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="gemiTuruDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>gemiTuruDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="gemiTuruDataSet9.xss">
+      <DependentUpon>gemiTuruDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="girisDataSet.xsc">
+      <DependentUpon>girisDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="girisDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>girisDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="girisDataSet.xss">
+      <DependentUpon>girisDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="girisDataSet1.xsc">
+      <DependentUpon>girisDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="girisDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>girisDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="girisDataSet1.xss">
+      <DependentUpon>girisDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="KulturTurlarıDataSet.xsc">
+      <DependentUpon>KulturTurlarıDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="KulturTurlarıDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KulturTurlarıDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KulturTurlarıDataSet.xss">
+      <DependentUpon>KulturTurlarıDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="KulturTurlarıDataSet1.xsc">
+      <DependentUpon>KulturTurlarıDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="KulturTurlarıDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KulturTurlarıDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KulturTurlarıDataSet1.xss">
+      <DependentUpon>KulturTurlarıDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="KulturTurlarıDataSet2.xsc">
+      <DependentUpon>KulturTurlarıDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="KulturTurlarıDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KulturTurlarıDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KulturTurlarıDataSet2.xss">
+      <DependentUpon>KulturTurlarıDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="KulturTurlarıDataSet3.xsc">
+      <DependentUpon>KulturTurlarıDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="KulturTurlarıDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KulturTurlarıDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KulturTurlarıDataSet3.xss">
+      <DependentUpon>KulturTurlarıDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="KulturTurlarıDataSet4.xsc">
+      <DependentUpon>KulturTurlarıDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="KulturTurlarıDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KulturTurlarıDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KulturTurlarıDataSet4.xss">
+      <DependentUpon>KulturTurlarıDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="KulturTurlarıDataSet5.xsc">
+      <DependentUpon>KulturTurlarıDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="KulturTurlarıDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KulturTurlarıDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KulturTurlarıDataSet5.xss">
+      <DependentUpon>KulturTurlarıDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="KulturTurlarıDataSet6.xsc">
+      <DependentUpon>KulturTurlarıDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="KulturTurlarıDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KulturTurlarıDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KulturTurlarıDataSet6.xss">
+      <DependentUpon>KulturTurlarıDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="OtelAramaDataSet.xsc">
+      <DependentUpon>OtelAramaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="OtelAramaDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtelAramaDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtelAramaDataSet.xss">
+      <DependentUpon>OtelAramaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="OtelAramaDataSet1.xsc">
+      <DependentUpon>OtelAramaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="OtelAramaDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtelAramaDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtelAramaDataSet1.xss">
+      <DependentUpon>OtelAramaDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="OtelAramaDataSet2.xsc">
+      <DependentUpon>OtelAramaDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="OtelAramaDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtelAramaDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtelAramaDataSet2.xss">
+      <DependentUpon>OtelAramaDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet1.xsc">
+      <DependentUpon>OtellerVeriTabanıDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtellerVeriTabanıDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet1.xss">
+      <DependentUpon>OtellerVeriTabanıDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet10.xsc">
+      <DependentUpon>OtellerVeriTabanıDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtellerVeriTabanıDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet10.xss">
+      <DependentUpon>OtellerVeriTabanıDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet11.xsc">
+      <DependentUpon>OtellerVeriTabanıDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtellerVeriTabanıDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet11.xss">
+      <DependentUpon>OtellerVeriTabanıDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet111.xsc">
+      <DependentUpon>OtellerVeriTabanıDataSet111.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet111.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtellerVeriTabanıDataSet111.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet111.xss">
+      <DependentUpon>OtellerVeriTabanıDataSet111.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet12.xsc">
+      <DependentUpon>OtellerVeriTabanıDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtellerVeriTabanıDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet12.xss">
+      <DependentUpon>OtellerVeriTabanıDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet13.xsc">
+      <DependentUpon>OtellerVeriTabanıDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtellerVeriTabanıDataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet13.xss">
+      <DependentUpon>OtellerVeriTabanıDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet14.xsc">
+      <DependentUpon>OtellerVeriTabanıDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet14.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtellerVeriTabanıDataSet14.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet14.xss">
+      <DependentUpon>OtellerVeriTabanıDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet15.xsc">
+      <DependentUpon>OtellerVeriTabanıDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet15.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtellerVeriTabanıDataSet15.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet15.xss">
+      <DependentUpon>OtellerVeriTabanıDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet2.xsc">
+      <DependentUpon>OtellerVeriTabanıDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtellerVeriTabanıDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet2.xss">
+      <DependentUpon>OtellerVeriTabanıDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet3.xsc">
+      <DependentUpon>OtellerVeriTabanıDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtellerVeriTabanıDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet3.xss">
+      <DependentUpon>OtellerVeriTabanıDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet4.xsc">
+      <DependentUpon>OtellerVeriTabanıDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtellerVeriTabanıDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet4.xss">
+      <DependentUpon>OtellerVeriTabanıDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet5.xsc">
+      <DependentUpon>OtellerVeriTabanıDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtellerVeriTabanıDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet5.xss">
+      <DependentUpon>OtellerVeriTabanıDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet6.xsc">
+      <DependentUpon>OtellerVeriTabanıDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtellerVeriTabanıDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet6.xss">
+      <DependentUpon>OtellerVeriTabanıDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet7.xsc">
+      <DependentUpon>OtellerVeriTabanıDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtellerVeriTabanıDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet7.xss">
+      <DependentUpon>OtellerVeriTabanıDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet8.xsc">
+      <DependentUpon>OtellerVeriTabanıDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtellerVeriTabanıDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet8.xss">
+      <DependentUpon>OtellerVeriTabanıDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet9.xsc">
+      <DependentUpon>OtellerVeriTabanıDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OtellerVeriTabanıDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OtellerVeriTabanıDataSet9.xss">
+      <DependentUpon>OtellerVeriTabanıDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet1.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet1.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet10.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet10.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet11.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet11.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet12.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet12.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet13.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet13.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet14.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet14.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet14.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet14.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet15.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet15.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet15.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet15.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet16.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet16.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet16.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet16.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet17.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet17.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet17.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet17.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet18.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet18.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet18.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet18.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet18.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet18.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet19.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet19.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet19.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet19.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet19.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet19.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet2.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet2.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet20.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet20.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet20.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet20.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet20.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet20.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet21.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet21.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet21.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet21.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet22.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet22.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet22.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet22.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet22.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet22.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet23.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet23.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet23.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet23.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet23.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet23.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet24.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet24.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet24.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet24.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet24.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet24.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet25.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet25.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet25.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet25.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet25.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet25.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet26.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet26.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet26.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet26.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet26.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet26.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet271.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet271.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet271.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet271.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet271.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet271.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet28.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet28.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet28.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet28.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet28.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet28.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet29.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet29.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet29.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet29.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet29.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet29.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet3.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet3.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet30.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet30.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet30.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet30.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet30.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet30.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet31.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet31.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet31.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet31.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet31.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet31.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet32.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet32.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet32.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet32.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet32.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet32.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet4.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet4.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet5.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet5.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet6.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet6.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet7.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet7.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet8.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet8.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet9.xsc">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Yeni_Microsoft_Access_VeritabanıDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Yeni_Microsoft_Access_VeritabanıDataSet9.xss">
+      <DependentUpon>Yeni_Microsoft_Access_VeritabanıDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="yurtdışıTuruDataSet.xsc">
+      <DependentUpon>yurtdışıTuruDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="yurtdışıTuruDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>yurtdışıTuruDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="yurtdışıTuruDataSet.xss">
+      <DependentUpon>yurtdışıTuruDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="yurtdışıTuruDataSet1.xsc">
+      <DependentUpon>yurtdışıTuruDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="yurtdışıTuruDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>yurtdışıTuruDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="yurtdışıTuruDataSet1.xss">
+      <DependentUpon>yurtdışıTuruDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="yurtdışıTuruDataSet2.xsc">
+      <DependentUpon>yurtdışıTuruDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="yurtdışıTuruDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>yurtdışıTuruDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="yurtdışıTuruDataSet2.xss">
+      <DependentUpon>yurtdışıTuruDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="yurtdışıTuruDataSet3.xsc">
+      <DependentUpon>yurtdışıTuruDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="yurtdışıTuruDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>yurtdışıTuruDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="yurtdışıTuruDataSet3.xss">
+      <DependentUpon>yurtdışıTuruDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="yurtdışıTuruDataSet4.xsc">
+      <DependentUpon>yurtdışıTuruDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="yurtdışıTuruDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>yurtdışıTuruDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="yurtdışıTuruDataSet4.xss">
+      <DependentUpon>yurtdışıTuruDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="yurtdışıTuruDataSet5.xsc">
+      <DependentUpon>yurtdışıTuruDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="yurtdışıTuruDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>yurtdışıTuruDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="yurtdışıTuruDataSet5.xss">
+      <DependentUpon>yurtdışıTuruDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="yurtdışıTuruDataSet6.xsc">
+      <DependentUpon>yurtdışıTuruDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="yurtdışıTuruDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>yurtdışıTuruDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="yurtdışıTuruDataSet6.xss">
+      <DependentUpon>yurtdışıTuruDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="yurtdışıTuruDataSet7.xsc">
+      <DependentUpon>yurtdışıTuruDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="yurtdışıTuruDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>yurtdışıTuruDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="yurtdışıTuruDataSet7.xss">
+      <DependentUpon>yurtdışıTuruDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="yurtdışıTuruDataSet8.xsc">
+      <DependentUpon>yurtdışıTuruDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="yurtdışıTuruDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>yurtdışıTuruDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="yurtdışıTuruDataSet8.xss">
+      <DependentUpon>yurtdışıTuruDataSet8.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database2.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="gemiTuru.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="giris.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KulturTurları.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OtelArama.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OtellerVeriTabanı.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Yeni Microsoft Access Veritabanı.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="yurtdışıTuru.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Microsoft.Data.SqlClient.SNI.5.1.0\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('packages\Microsoft.Data.SqlClient.SNI.5.1.0\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.Data.SqlClient.SNI.5.1.0\build\net462\Microsoft.Data.SqlClient.SNI.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Data.SqlClient.SNI.5.1.0\build\net462\Microsoft.Data.SqlClient.SNI.targets'))" />
+  </Target>
+</Project>
