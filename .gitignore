@@ -1,0 +1,13 @@
+# Visual Studio derleme çıktıları ve kullanıcıya özel dosyalar
+[Bb]in/
+[Oo]bj/
+.vs/
+packages/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# NuGet
+*.nupkg
